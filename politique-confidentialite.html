@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politique de Confidentialité - LeadGenius</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #000000;
+      --secondary: #333333;
+      --accent: #666666;
+      --light: #ffffff;
+    }
+    
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--light);
+      color: var(--secondary);
+      line-height: 1.8;
+    }
+    
+    .legal-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 6rem 2rem 8rem;
+    }
+    
+    .legal-section {
+      background: var(--light);
+      padding: 3.5rem 0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .legal-section:nth-child(1) { animation-delay: 0.1s; }
+    .legal-section:nth-child(2) { animation-delay: 0.2s; }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .legal-section h2 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+      letter-spacing: -0.5px;
+    }
+    
+    .legal-section h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+    
+    .legal-section h3 {
+      color: var(--primary);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 3rem 0 1.5rem;
+      letter-spacing: -0.3px;
+    }
+    
+    .legal-section p {
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    
+    .legal-section ul {
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .legal-section li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .legal-section li:before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      opacity: 0;
+      visibility: hidden;
+      border: none;
+      cursor: pointer;
+      z-index: 99;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: var(--secondary);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .back-to-top i {
+      font-size: 1.2rem;
+    }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+      margin: 4rem 0;
+    }
+    
+    @media (max-width: 768px) {
+      .legal-container {
+        padding: 4rem 1.5rem 6rem;
+      }
+      
+      .legal-section h2 {
+        font-size: 1.8rem;
+      }
+      
+      .legal-section h3 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Header -->
+  <header class="fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 bg-white">
+      <div class="flex justify-between items-center">
+        <a href="index.html" class="text-3xl font-bold text-black hover:opacity-80 transition-opacity duration-300">
+          LeadGenius
+        </a>
+        <a href="index.html" class="flex items-center text-black hover:text-gray-800 transition-colors duration-300">
+          <i class="fas fa-arrow-left mr-3 text-xl"></i>
+          Retour à l'accueil
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="legal-container">
+    <div class="text-center mb-20">
+      <h1 class="text-5xl font-bold mb-6 text-black">Politique de Confidentialité</h1>
+      <div class="w-24 h-1 bg-black mx-auto"></div>
+    </div>
+
+    <div class="legal-section">
+      <h2>1. Collecte de données personnelles</h2>
+      <p>Nous collectons uniquement les données nécessaires à la fourniture de nos services. Ces données incluent :</p>
+      <ul>
+        <li>Informations de contact (nom, email)</li>
+        <li>Données d'utilisation du site</li>
+        <li>Données de facturation</li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h2>2. Utilisation des données</h2>
+      <p>Nos données sont utilisées uniquement pour :</p>
+      <ul>
+        <li>Améliorer nos services</li>
+        <li>Assurer la sécurité de notre plateforme</li>
+        <li>Contacter nos utilisateurs</li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h2>3. Cookies</h2>
+      <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. Vous pouvez gérer vos préférences via notre page de préférences de cookies.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>4. Protection des données</h2>
+      <p>Nous mettons en place des mesures de sécurité strictes pour protéger vos données personnelles.</p>
+    </div>
+  </main>
+
+  <!-- Bouton Retour en haut -->
+  <button class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Gestion du bouton retour en haut
+    const backToTopBtn = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+</body>
+</html>

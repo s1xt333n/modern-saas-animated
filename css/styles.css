@@ -1,0 +1,763 @@
+/* Notification Style Glassmorphism */
+.notification {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px) saturate(200%);
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
+  border-radius: 20px;
+  padding: 20px 24px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    0 0 40px rgba(0, 119, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transform: translateY(-100px) scale(0.95);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000;
+  max-width: 340px;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.notification::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.6), 
+    transparent
+  );
+}
+
+.notification::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 100% 0%,
+    rgba(0, 119, 255, 0.1) 0%,
+    transparent 70%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+.notification.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.notification-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.notification-icon {
+  width: 28px;
+  height: 28px;
+  background: #1f2937; /* Noir pour l'icône */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notification-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: white; /* Icône en blanc pour contraster avec le fond noir */
+}
+
+.notification-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #1f2937; /* Gris très foncé pour le titre */
+  text-shadow: none;
+}
+
+.notification-message {
+  font-size: 14px;
+  color: #4b5563; /* Gris foncé pour le message */
+  line-height: 1.5;
+  margin-top: 6px;
+  text-shadow: none;
+}
+
+/* Simple Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animations pour le modal de connexion */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-enter {
+  animation: slideIn 0.3s ease-out;
+}
+
+.modal-exit {
+  animation: slideIn 0.3s ease-out reverse;
+}
+
+.modal-overlay-enter {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-overlay-exit {
+  animation: fadeIn 0.3s ease-out reverse;
+}
+
+/* Simple Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply animation to header elements */
+.header h1 {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.header p {
+  animation: fadeIn 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.button-container {
+  animation: fadeIn 0.8s ease-out 0.8s forwards;
+  opacity: 0;
+}
+
+/* Configuration personnalisée de Tailwind CSS pour les couleurs et l'ombre */
+:root {
+  --color-primary-text: #1a1a1a;
+  --color-secondary-text: #6b7280; /* gray-500 */
+  --color-background: #f9fafb; /* gray-50 */
+  --color-card-bg: rgba(255, 255, 255, 0.8); /* Fond de carte avec transparence pour l'effet vitre */
+  --color-border: #e5e7eb; /* gray-200 */
+  --color-accent: #000000;
+  --color-accent-text: #ffffff;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --border-radius-large: 1.5rem; /* 24px */
+  --border-radius-xl: 2.5rem; /* 40px */
+}
+
+/* Reset complet */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+}
+
+/* Styles pour les cartes d'information */
+.features-grid {
+  margin: 4rem auto 6rem;
+  perspective: 1000px;
+}
+
+/* Styles pour les popups des statistiques */
+.stat-popup {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin-top: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 10;
+    width: 200px;
+}
+
+.stat-popup.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+.stat-popup::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+.stat-popup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-popup-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.stat-popup-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.stat-popup-change {
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.stat-popup-change.positive {
+    color: #10B981;
+}
+
+.stat-popup-change.negative {
+    color: #EF4444;
+}
+
+/* Styles pour les badges de sécurité */
+.security-badges {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.security-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.security-badge:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.security-badge svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #fff;
+}
+
+/* Style du bouton Start Free Trial */
+.pricing-section .btn-primary {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour les portraits et les anneaux */
+.sphere-ring {
+  position: relative;
+  width: 900px;
+  height: 900px;
+  margin: 0 auto;
+}
+
+.ring-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+}
+
+.portrait {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.portrait:hover {
+  transform: scale(1.1);
+}
+
+.portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.pricing-section .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px) translateZ(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+.feature-card .icon-wrapper {
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .icon-wrapper {
+  transform: scale(1.05);
+}
+
+.feature-card h3 {
+  position: relative;
+  display: inline-block;
+}
+
+.feature-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.feature-card:hover h3::after {
+  width: 100%;
+}
+
+.feature-card .icon-wrapper i {
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .icon-wrapper i {
+  transform: scale(1.1);
+}
+
+.feature-card > div:last-child {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.feature-card:hover > div:last-child {
+  transform: translateX(5px);
+  color: #1a1a1a;
+}
+
+/* Espace avant le footer */
+footer {
+  margin-top: 8rem !important;
+  padding: 4rem 0 !important;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-primary-text);
+  background-color: var(--color-background);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Styles pour le header */
+.header {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  max-width: 1200px;
+  margin: 200px 0 300px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Ajustement pour mobile */
+@media (max-width: 1024px) {
+  .header {
+    margin: 150px 0 250px;
+    min-height: 60vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin: 120px 0 200px;
+    min-height: 50vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    margin: 100px 0 180px;
+    min-height: 40vh;
+  }
+}
+
+.header .title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 auto 1.5rem;
+  max-width: 900px;
+  color: #000000;
+  letter-spacing: -0.02em;
+  position: relative;
+  padding: 0 20px;
+}
+
+.header .title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #000000, #333333);
+  border-radius: 3px;
+}
+
+.header .subtitle {
+  font-size: 1.4rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  padding: 0 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1350px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.glass-card {
+  background-color: var(--color-card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Styles pour les sphères flottantes (portraits) */
+.floating-sphere {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  border: 2.5px solid #fff;
+}
+
+/* Conteneur principal pour toutes les couches d'anneaux */
+.sphere-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  transform-style: preserve-3d;
+}
+
+/* Styles pour chaque couche d'anneau */
+.ring-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  transform-origin: center center;
+  transition: transform 0.1s ease-out;
+}
+
+/* Bouton CTA avec effet sweep subtil */
+.cta-btn-custom {
+  background-color: black;
+  color: white;
+  border-radius: 9999px;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  height: auto;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Effet de balayage subtil */
+.cta-btn-custom::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: 0.8s;
+  z-index: 1;
+}
+
+.cta-btn-custom:hover::after {
+  left: 100%;
+}
+
+/* Effet de survol léger */
+.cta-btn-custom:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Effet de surbrillance et ombre plus prononcée au survol */
+.cta-btn-custom:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Animation de pulsation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  50% {
+    box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.15), 0 6px 8px -3px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Ajustements responsifs pour le bouton */
+@media (max-width: 768px) {
+  .cta-btn-custom {
+    padding: 0.7rem 1.6rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-btn-custom {
+    padding: 0.6rem 1.8rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Effet de balayage (sweep) */
+.cta-btn-custom::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+/* Animation au survol */
+.cta-btn-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation du balayage au survol */
+.cta-btn-custom:hover::after {
+  left: 100%;
+}
+
+/* Effet au clic */
+.cta-btn-custom:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation de pulsation subtile au chargement */
+@keyframes subtlePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.cta-btn-custom {
+  animation: subtlePulse 6s infinite ease-in-out;
+}
+
+/* Ajustements responsifs */
+@media (max-width: 900px) {
+  .sphere-ring { width: 600px; height: 600px; }
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin: 0 auto;
+    padding: 8px 10px 15px;
+  }
+  
+  .header .title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+    padding: 0 10px;
+  }
+  
+  .header .subtitle {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 0 auto 2.5rem;
+    padding: 0 10px;
+  }
+
+  .floating-sphere {
+    width: 48px;
+    height: 48px;
+  }
+
+  .cta-btn-custom {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    margin: 0 auto;
+    padding: 5px 8px 10px;
+  }
+  
+  .header .title {
+    font-size: 2rem;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    padding: 0;
+  }
+  
+  .header .subtitle {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0 auto 2rem;
+    padding: 0;
+  }
+
+  .sphere-ring {
+    width: 400px;
+    height: 400px;
+  }
+
+  .floating-sphere {
+    width: 38px;
+    height: 38px;
+  }
+
+  .cta-btn-custom {
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer src="js/messages.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages - Modern SaaS Animated</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    html, body { height: 100%; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+    .dashboard-container { display: flex; flex: 1 0 auto; width: 100%; min-height: 100%; }
+    .sidebar { width: 280px; height: 100vh; position: fixed; left: 0; top: 0; background: #f9fafb; box-shadow: 2px 0 10px rgba(0,0,0,0.05); z-index: 50; overflow-y: auto; }
+    .main-content { flex: 1; margin-left: 280px; padding: 0; display: flex; flex-direction: column; background: #f9fafb; width: calc(100% - 280px); }
+    @media (max-width: 1024px) { .sidebar { width: 100%; position: static; height: auto; } .main-content { margin-left: 0; } }
+    .avatar { border-radius: 9999px; width: 2.75rem; height: 2.75rem; object-fit: cover; }
+    .btn-message { background: #000; color: #fff; border-radius: 9999px; font-weight: 500; padding: 0.75rem 1.75rem; transition: background 0.18s, box-shadow 0.18s; box-shadow: 0 2px 8px 0 rgba(0,0,0,0.09); }
+    .btn-message:hover { background: #222; }
+    .bubble-received { background: #f3f4f6; color: #222; border-radius: 1.25rem; padding: 0.75rem 1.25rem; box-shadow: 0 1px 4px 0 rgba(0,0,0,0.06); max-width: 75%; margin-bottom: 0.25rem; }
+    .bubble-sent { background: #000; color: #fff; border-radius: 1.25rem; padding: 0.75rem 1.25rem; box-shadow: 0 1px 4px 0 rgba(0,0,0,0.10); max-width: 75%; margin-bottom: 0.25rem; margin-left: auto; }
+  </style>
+</head>
+<body class="bg-gray-50 h-full">
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="p-4">
+        <a href="index.html" class="block focus:outline-none">
+          <h1 class="text-2xl font-bold text-gray-900 mb-6 hover:underline cursor-pointer">Lead<span class="text-black">Genius</span></h1>
+        </a>
+      </div>
+      <nav class="space-y-1">
+        <a href="dashboard.html" class="tab-link flex items-center px-6 py-3 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:bg-gray-50">Dashboard</a>
+        <a href="contacts.html" class="tab-link flex items-center px-6 py-3 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:bg-gray-50">Contacts</a>
+        <a href="messages.html" class="tab-link flex items-center px-6 py-3 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-900 bg-gray-100">Messages</a>
+        <a href="parametres.html" class="tab-link flex items-center px-6 py-3 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:bg-gray-50">Settings</a>
+      </nav>
+      <div class="mt-auto p-4 border-t border-gray-200">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-8 h-8 rounded-full mr-2">
+            <div>
+              <p class="text-sm font-medium text-gray-900">Sarah Dupont</p>
+              <p class="text-xs text-gray-500">Administrator</p>
+            </div>
+          </div>
+          <button class="text-gray-400 hover:text-gray-600">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="bg-white border border-gray-200 shadow-sm p-4 mb-4 flex justify-between items-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Messages</h2>
+        <button class="btn-message flex items-center gap-2"><i class="fas fa-plus"></i> Nouveau message</button>
+      </div>
+      <section class="flex flex-col lg:flex-row gap-6 h-[70vh] px-6 pb-6">
+        <!-- Conversations List (Inbox) -->
+        <aside class="w-full lg:w-1/3 bg-white border border-gray-200 rounded-xl shadow-sm flex flex-col overflow-hidden">
+          <div class="flex items-center gap-2 px-4 py-3 border-b border-gray-100 bg-gray-50">
+            <input type="text" placeholder="Rechercher..." class="flex-1 px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black text-sm bg-white" />
+            <button class="btn-message flex items-center gap-2 ml-2"><i class="fas fa-filter"></i></button>
+          </div>
+          <div class="flex gap-2 px-4 py-2 border-b border-gray-100 bg-white text-xs">
+            <button class="btn-message px-3 py-1 text-xs">Tous</button>
+            <button class="btn-message px-3 py-1 text-xs bg-gray-200 text-gray-700 hover:bg-black hover:text-white">Non lus</button>
+            <button class="btn-message px-3 py-1 text-xs bg-gray-200 text-gray-700 hover:bg-black hover:text-white">Favoris</button>
+          </div>
+          <div class="flex-1 overflow-y-auto divide-y divide-gray-100">
+            <!-- Conversation Item -->
+            <button class="w-full flex items-center gap-3 px-4 py-3 hover:bg-black/90 hover:text-white transition rounded-xl group relative focus:outline-none inbox-conv-btn">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" class="avatar" alt="Avatar">
+              <div class="flex-1 min-w-0 text-left">
+                <div class="flex items-center gap-2">
+                  <span class="font-semibold">Julien Martin</span>
+                  <span class="ml-1 text-xs bg-yellow-200 text-yellow-700 rounded px-2 py-0.5 font-bold">VIP</span>
+                </div>
+                <div class="text-xs truncate opacity-80">Merci pour l’envoi du doc, je regarde ça !</div>
+              </div>
+              <div class="flex flex-col items-end gap-1">
+                <span class="text-xs opacity-60">16:08</span>
+                <span class="inline-block bg-black text-white text-xs rounded-full px-2">2</span>
+              </div>
+            </button>
+            <button class="w-full flex items-center gap-3 px-4 py-3 hover:bg-black/90 hover:text-white transition rounded-xl group relative focus:outline-none inbox-conv-btn">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" class="avatar" alt="Avatar">
+              <div class="flex-1 min-w-0 text-left">
+                <div class="flex items-center gap-2">
+                  <span class="font-semibold">Claire Dubois</span>
+                  <span class="ml-1 text-xs bg-blue-100 text-blue-800 rounded px-2 py-0.5 font-bold">Nouveau</span>
+                </div>
+                <div class="text-xs truncate opacity-80">Tu es dispo pour call demain ?</div>
+              </div>
+              <div class="flex flex-col items-end gap-1">
+                <span class="text-xs opacity-60">15:51</span>
+                <span class="inline-block bg-gray-300 text-gray-700 text-xs rounded-full px-2">1</span>
+              </div>
+            </button>
+            <button class="w-full flex items-center gap-3 px-4 py-3 hover:bg-black/90 hover:text-white transition rounded-xl group relative focus:outline-none inbox-conv-btn">
+              <img src="https://randomuser.me/api/portraits/men/21.jpg" class="avatar" alt="Avatar">
+              <div class="flex-1 min-w-0 text-left">
+                <div class="flex items-center gap-2">
+                  <span class="font-semibold">Mehdi Benali</span>
+                  <span class="ml-1 text-xs bg-green-100 text-green-800 rounded px-2 py-0.5 font-bold">Pro</span>
+                </div>
+                <div class="text-xs truncate opacity-80">Voici le rapport demandé 👍</div>
+              </div>
+              <div class="flex flex-col items-end gap-1">
+                <span class="text-xs opacity-60">Hier</span>
+                <span class="inline-block bg-black text-white text-xs rounded-full px-2">3</span>
+              </div>
+            </button>
+            <!-- ... autres conversations ... -->
+          </div>
+        </aside>
+        <!-- Conversation Pane -->
+        <section class="flex-1 bg-white border border-gray-200 rounded-xl shadow-sm flex flex-col">
+          <!-- Header de la conversation -->
+          <div class="flex items-center gap-4 border-b border-gray-100 px-6 py-4 bg-gray-50">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="avatar border-2 border-black/40" alt="Avatar">
+            <div class="flex-1">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-900">Julien Martin</span>
+                <span class="ml-1 text-xs bg-yellow-200 text-yellow-700 rounded px-2 py-0.5 font-bold">VIP</span>
+              </div>
+              <div class="text-xs text-gray-500">En ligne</div>
+            </div>
+            <button class="btn-message"><i class="fas fa-star"></i></button>
+            <button class="btn-message"><i class="fas fa-archive"></i></button>
+            <button class="btn-message"><i class="fas fa-trash"></i></button>
+            <button class="btn-message"><i class="fas fa-ellipsis-v"></i></button>
+          </div>
+          <!-- Historique des messages -->
+          <div class="flex-1 overflow-y-auto px-6 py-4 space-y-4 bg-white">
+            <!-- Message reçu -->
+            <div class="flex items-start gap-3">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" class="avatar mt-1" alt="Avatar">
+              <div>
+                <div class="bubble-received">Salut, tu as eu le temps de checker le doc ?</div>
+                <div class="text-xs text-gray-400 ml-2">16:05</div>
+              </div>
+            </div>
+            <!-- Message envoyé -->
+            <div class="flex items-end gap-3 justify-end">
+              <div>
+                <div class="bubble-sent">Yes nickel, je t’envoie un retour détaillé ce soir !</div>
+                <div class="text-xs text-gray-400 text-right mr-2">16:07</div>
+              </div>
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" class="avatar mt-1" alt="Avatar">
+            </div>
+            <!-- Message reçu -->
+            <div class="flex items-start gap-3">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" class="avatar mt-1" alt="Avatar">
+              <div>
+                <div class="bubble-received">Merci, à plus tard !</div>
+                <div class="text-xs text-gray-400 ml-2">16:08</div>
+              </div>
+            </div>
+            <!-- ... autres messages ... -->
+          </div>
+          <!-- Zone de saisie -->
+          <form class="flex items-center gap-2 border-t border-gray-100 px-6 py-4 bg-gray-50 sticky bottom-0">
+            <button type="button" class="btn-message"><i class="far fa-smile"></i></button>
+            <button type="button" class="btn-message"><i class="fas fa-paperclip"></i></button>
+            <input type="text" placeholder="Écrire un message..." class="flex-1 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black text-base bg-white" />
+            <button type="submit" class="btn-message flex items-center gap-2"><i class="fas fa-paper-plane"></i> Envoyer</button>
+          </form>
+        </section>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

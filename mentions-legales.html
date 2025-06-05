@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentions Légales - LeadGenius</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #000000;
+      --secondary: #333333;
+      --accent: #666666;
+      --light: #ffffff;
+    }
+    
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--light);
+      color: var(--secondary);
+      line-height: 1.8;
+    }
+    
+    .legal-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 6rem 2rem 8rem;
+    }
+    
+    .legal-section {
+      background: var(--light);
+      padding: 3.5rem 0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .legal-section:nth-child(1) { animation-delay: 0.1s; }
+    .legal-section:nth-child(2) { animation-delay: 0.2s; }
+    .legal-section:nth-child(3) { animation-delay: 0.3s; }
+    .legal-section:nth-child(4) { animation-delay: 0.4s; }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .legal-section h2 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+      letter-spacing: -0.5px;
+    }
+    
+    .legal-section h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+    
+    .legal-section h3 {
+      color: var(--primary);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 3rem 0 1.5rem;
+      letter-spacing: -0.3px;
+    }
+    
+    .legal-section p {
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    
+    .legal-section ul {
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .legal-section li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .legal-section li:before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      opacity: 0;
+      visibility: hidden;
+      border: none;
+      cursor: pointer;
+      z-index: 99;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: var(--secondary);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .back-to-top i {
+      font-size: 1.2rem;
+    }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+      margin: 4rem 0;
+    }
+    
+    @media (max-width: 768px) {
+      .legal-container {
+        padding: 4rem 1.5rem 6rem;
+      }
+      
+      .legal-section h2 {
+        font-size: 1.8rem;
+      }
+      
+      .legal-section h3 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Header -->
+  <header class="fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 bg-white">
+      <div class="flex justify-between items-center">
+        <a href="index.html" class="text-3xl font-bold text-black hover:opacity-80 transition-opacity duration-300">
+          LeadGenius
+        </a>
+        <a href="index.html" class="flex items-center text-black hover:text-gray-800 transition-colors duration-300">
+          <i class="fas fa-arrow-left mr-3 text-xl"></i>
+          Retour à l'accueil
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="legal-container">
+    <div class="text-center mb-20">
+      <h1 class="text-5xl font-bold mb-6 text-black">Mentions Légales</h1>
+      <div class="w-24 h-1 bg-black mx-auto"></div>
+    </div>
+    
+    <div class="legal-section">
+      <h2>1. Informations légales</h2>
+      <p><strong>Dénomination sociale :</strong> LeadGenius SAS</p>
+      <p><strong>Forme juridique :</strong> Société par Actions Simplifiée</p>
+      <p><strong>Capital social :</strong> 50 000 €</p>
+      <p><strong>Siège social :</strong> 123 Rue de Paris, 75001 Paris, France</p>
+      <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
+      <p><strong>Email :</strong> contact@leadgenius.com</p>
+      <p><strong>RCS :</strong> Paris 123 456 789</p>
+      <p><strong>TVA intracommunautaire :</strong> FR 12 345678912</p>
+      <p><strong>Directeur de la publication :</strong> [Nom du directeur]</p>
+      <p><strong>Hébergeur :</strong> OVH SAS - 2 rue Kellermann, 59100 Roubaix, France</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>2. Protection des données personnelles</h2>
+      <p>Conformément à la réglementation en vigueur, notamment le Règlement Général sur la Protection des Données (RGPD) et la Loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de portabilité, d'effacement de vos données ou de limitation du traitement.</p>
+      <p>Pour exercer ces droits ou pour toute question relative au traitement de vos données, vous pouvez nous contacter à l'adresse suivante :</p>
+      <p>LeadGenius - Service Juridique<br>123 Rue de Paris<br>75001 Paris, France<br>Email : dpo@leadgenius.com</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>3. Propriété intellectuelle</h2>
+      <p>L'ensemble des éléments constituant le site (textes, images, logos, vidéos, sons, etc.) sont la propriété exclusive de LeadGenius ou font l'objet d'une autorisation d'utilisation. Toute reproduction, représentation, utilisation ou adaptation, sous quelque forme que ce soit, de tout ou partie des éléments du site sans l'accord préalable écrit de LeadGenius est strictement interdite et constituerait un acte de contrefaçon sanctionné par les articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>4. Cookies</h2>
+      <p>Notre site utilise des cookies pour améliorer votre expérience utilisateur. Les cookies sont de petits fichiers texte stockés sur votre appareil lorsque vous visitez notre site. Nous utilisons les types de cookies suivants :</p>
+      <ul>
+        <li>Cookies nécessaires au fonctionnement du site</li>
+        <li>Cookies d'analyse d'audience (Google Analytics)</li>
+        <li>Cookies de préférences</li>
+        <li>Cookies de publicité ciblée</li>
+      </ul>
+      <p>Vous pouvez configurer votre navigateur pour refuser les cookies, mais certaines fonctionnalités du site pourraient ne plus fonctionner correctement.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>5. Responsabilité</h2>
+      <p>Les informations fournies sur ce site le sont à titre indicatif. Malgré tout le soin apporté à la rédaction des contenus, ceux-ci peuvent contenir des erreurs techniques ou des inexactitudes. LeadGenius ne pourra être tenue responsable des dommages directs ou indirects qui pourraient résulter de l'accès ou de l'utilisation du site, y compris l'inaccessibilité, les pertes de données, détériorations, destructions ou virus qui pourraient affecter votre équipement informatique.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>6. Droit applicable et juridiction compétente</h2>
+      <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>7. Dernière mise à jour</h2>
+      <p>Ces mentions légales ont été mises à jour le 29 mai 2024.</p>
+    </div>
+  </main>
+
+  <!-- Bouton retour en haut -->
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer class="w-full bg-black text-white py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div>
+          <h3 class="text-2xl font-bold mb-6">LeadGenius</h3>
+          <p class="text-gray-400 mb-6">La solution tout-en-un pour transformer vos visiteurs en clients fidèles.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Twitter">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Facebook">
+              <i class="fab fa-facebook-f text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Solutions</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Lead Generation</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Email Marketing</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Marketing Automation</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Analytics</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Entreprise</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">À propos</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Carrières</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Blog</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Contact</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-envelope text-gray-400 mr-3 mt-1"></i>
+              <a href="mailto:contact@leadgenius.com" class="text-gray-400 hover:text-white transition-colors duration-300">contact@leadgenius.com</a>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone text-gray-400 mr-3"></i>
+              <span class="text-gray-400">+33 1 23 45 67 89</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-gray-400 mr-3 mt-1"></i>
+              <span class="text-gray-400">123 Rue de Paris, 75001 Paris, France</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 my-12"></div>
+      
+      <div class="text-center text-gray-400">
+        <p class="mb-4">© 2025 LeadGenius. Tous droits réservés.</p>
+        <div class="flex justify-center gap-6">
+          <a href="mentions-legales.html" class="hover:text-white transition-colors">Mentions légales</a>
+          <a href="#" class="hover:text-white transition-colors">Politique de confidentialité</a>
+          <a href="#" class="hover:text-white transition-colors">Conditions d'utilisation</a>
+          <a href="#" class="hover:text-white transition-colors">Préférences de cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Twitter">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Facebook">
+              <i class="fab fa-facebook-f text-xl"></i>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-wrap justify-center sm:justify-end gap-4">
+          <a href="mentions-legales.html" class="text-blue-400 hover:text-white text-sm transition-colors duration-300">Mentions légales</a>
+          <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors duration-300">Politique de confidentialité</a>
+          <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors duration-300">CGU</a>
+          <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors duration-300">Politique des cookies</a>
+        </div>
+      </div>
+      <div class="mt-4 pt-4 border-t border-gray-800 text-center">
+        <p class="text-gray-500 text-sm">&copy; 2024 LeadGenius. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Script pour le bouton retour en haut
+    window.addEventListener('scroll', function() {
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 200) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>

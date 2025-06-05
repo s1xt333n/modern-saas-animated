@@ -1,0 +1,71 @@
+name: 🎬 Generate Animation Showcase
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    # Run weekly to keep the demo fresh
+    - cron: '0 12 * * 1'
+  workflow_dispatch:
+
+jobs:
+  create-animation-gif:
+    runs-on: ubuntu-latest
+    name: 🎭 Create Animation Preview
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    
+    - name: 🌐 Install Puppeteer & GIF tools
+      run: |
+        npm install puppeteer gifski
+        sudo apt-get update
+        sudo apt-get install -y ffmpeg
+    
+    - name: 🎬 Generate Animation Screenshots
+      run: |
+        node scripts/generate-animation-preview.js
+    
+    - name: 📸 Create Animated GIF
+      run: |
+        ffmpeg -framerate 30 -i animation-frames/frame_%03d.png -vf "scale=600:600" -t 10 floating-circles-animation.gif
+    
+    - name: 📤 Upload Animation Assets
+      uses: actions/upload-artifact@v4
+      with:
+        name: animation-showcase
+        path: |
+          floating-circles-animation.gif
+          animation-frames/
+    
+    - name: 🚀 Commit Animation Preview
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add floating-circles-animation.gif
+        git commit -m "🎬 Update animation showcase [skip ci]" || exit 0
+        git push
+
+  update-social-media:
+    needs: create-animation-gif
+    runs-on: ubuntu-latest
+    name: 📱 Update Social Media Assets
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 📸 Generate Social Media Cards
+      run: |
+        node scripts/generate-social-cards.js
+    
+    - name: 🎯 Update README Badges
+      run: |
+        # Update live demo badge with latest URL
+        sed -i 's|Demo-.*-blue|Demo-Live%20Now-success|g' README.md
+        # Add animation showcase badge
+        echo '[![Animation Showcase](https://img.shields.io/badge/Animation-Mind%20Blowing-ff69b4?style=for-the-badge&logo=css3)](./floating-circles-animation.gif)' >> README.md

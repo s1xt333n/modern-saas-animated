@@ -1,0 +1,73 @@
+name: 🚀 Deploy to Production
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: 🧪 Run Tests
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: 📥 Install dependencies
+      run: npm ci
+    
+    - name: 🧪 Run tests
+      run: npm test
+    
+    - name: 🔍 Run linting
+      run: npm run lint
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    name: 🌍 Deploy to Firebase
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: 📥 Install dependencies
+      run: npm ci
+    
+    - name: 🏗️ Build project
+      run: npm run build
+    
+    - name: 🚀 Deploy to Firebase
+      uses: FirebaseExtended/action-hosting-deploy@v0
+      with:
+        repoToken: ${{ secrets.GITHUB_TOKEN }}
+        firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        projectId: your-firebase-project-id
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    name: 🔍 Lighthouse Audit
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 🔍 Run Lighthouse audit
+      uses: treosh/lighthouse-ci-action@v10
+      with:
+        urls: |
+          https://your-app-url.com
+        uploadArtifacts: true
+        temporaryPublicStorage: true
