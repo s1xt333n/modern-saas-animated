@@ -1,6 +1,6 @@
 <div align="center">
 
-![Modern SaaS Animated Banner](./assets/images/banner.svg)
+[![Modern SaaS Animated](https://via.placeholder.com/1200x300/667eea/ffffff?text=🎭+Modern+SaaS+Animated+-+EPIC+6-Layer+Animation)](https://github.com/s1xt333n/modern-saas-animated)
 
 # 🎭 Modern SaaS Animated - Epic Animation Template
 
@@ -46,7 +46,9 @@
 - **🌍 Production Ready** - Optimized, tested, and ready for your SaaS launch
 
 <div align="center">
-<img src="./assets/images/features-overview.svg" alt="Modern SaaS Template Features Overview" width="800">
+
+[![Features Overview](https://via.placeholder.com/800x600/1e3c72/ffffff?text=🏆+Template+Features+Overview)](https://s1xt333n.github.io/modern-saas-animated)
+
 </div>
 
 ---
@@ -114,7 +116,9 @@ open index.html
 ## 🌟 **ANIMATION SHOWCASE** - *The Star of the Show*
 
 <div align="center">
-<img src="./assets/images/animation-preview.svg" alt="6-Layer Floating Circles Animation Preview" width="800">
+
+[![6-Layer Animation Preview](https://via.placeholder.com/800x400/2d1b69/ffffff?text=🎪+6-Layer+Floating+Circles+Animation+System)](https://s1xt333n.github.io/modern-saas-animated)
+
 </div>
 
 ### 🎭 **Epic Floating Circles Animation**
@@ -144,18 +148,21 @@ Layer 6: 42 portraits, radius 420px, speed -0.015 (reverse)
 
 ---
 
-## 📸 **Screenshots**
+## 🎯 **Live Demo & Preview**
 
 <div align="center">
 
 ### 🎭 **EPIC Floating Circles Animation**
-![Animation Showcase](https://via.placeholder.com/800x400/1a1a1a/ffffff?text=🎭+EPIC+6-Layer+Floating+Circles+Animation)
+[![Animation Showcase](https://img.shields.io/badge/🎪_Animation_Demo-View_Live-ff69b4?style=for-the-badge&logo=css3&logoColor=white)](https://s1xt333n.github.io/modern-saas-animated)
+[![Animation Specs](https://img.shields.io/badge/6_Layers-180+_Portraits-4ecdc4?style=for-the-badge&logo=users&logoColor=white)](https://s1xt333n.github.io/modern-saas-animated)
 
 ### 🏠 **Modern SaaS Landing Page**
-![Landing Page](https://via.placeholder.com/800x400/f8f9fa/1a1a1a?text=🏠+Beautiful+SaaS+Landing+Page)
+[![Landing Page](https://img.shields.io/badge/🏠_Landing_Page-Explore_Now-45b7d1?style=for-the-badge&logo=html5&logoColor=white)](https://s1xt333n.github.io/modern-saas-animated)
+[![Responsive Design](https://img.shields.io/badge/📱_Mobile_Ready-Perfect_UI-2ecc71?style=for-the-badge&logo=responsive&logoColor=white)](https://s1xt333n.github.io/modern-saas-animated)
 
 ### 📊 **SaaS Dashboard**
-![Dashboard](https://via.placeholder.com/800x400/f8f9fa/1a1a1a?text=📊+Modern+SaaS+Dashboard)
+[![Dashboard Demo](https://img.shields.io/badge/📊_Dashboard-Live_Preview-f39c12?style=for-the-badge&logo=chartdotjs&logoColor=white)](https://s1xt333n.github.io/modern-saas-animated/dashboard.html)
+[![Analytics](https://img.shields.io/badge/📈_Analytics-Real_Time-e74c3c?style=for-the-badge&logo=analytics&logoColor=white)](https://s1xt333n.github.io/modern-saas-animated/dashboard.html)
 
 </div>
 

@@ -1,0 +1,19 @@
+# Ensure SVG files are served with correct MIME type
+*.svg linguist-detectable=false
+*.svg linguist-documentation=true
+
+# Mark documentation files
+*.md linguist-documentation=true
+*.txt linguist-documentation=true
+
+# Mark script files appropriately
+*.js linguist-language=JavaScript
+*.css linguist-language=CSS
+*.html linguist-language=HTML
+
+# Ensure proper line endings
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.svg text eol=lf
