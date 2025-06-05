@@ -1,0 +1,29 @@
+<svg width="200" height="35" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="liveBadge" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#00cc69;stop-opacity:1" />
+        </linearGradient>
+        <filter id="pulse">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge> 
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="200" height="35" rx="17.5" fill="url(#liveBadge)"/>
+    
+    <!-- Pulsing dot -->
+    <circle cx="20" cy="17.5" r="4" fill="#ffffff" opacity="0.9" filter="url(#pulse)">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Text -->
+    <text x="35" y="22" fill="#ffffff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+        🚀 LIVE DEMO
+    </text>
+</svg>

@@ -1,0 +1,46 @@
+{
+  "name": "modern-saas-animated",
+  "description": "🚀 Modern SaaS template with EPIC 6-layer floating circles animation featuring 180+ rotating portraits! The most mesmerizing animated SaaS template ever created! ✨",
+  "homepage": "https://s1xt333n.github.io/modern-saas-animated",
+  "topics": [
+    "saas-template",
+    "animated-website", 
+    "floating-circles",
+    "modern-ui",
+    "javascript",
+    "css-animations",
+    "web-development",
+    "template",
+    "responsive-design",
+    "landing-page",
+    "firebase",
+    "dashboard",
+    "authentication",
+    "portfolio",
+    "showcase"
+  ],
+  "social": {
+    "twitter": "@s1xt333n",
+    "github": "s1xt333n"
+  },
+  "demo": {
+    "live": "https://s1xt333n.github.io/modern-saas-animated",
+    "animation": "https://s1xt333n.github.io/modern-saas-animated#animation",
+    "dashboard": "https://s1xt333n.github.io/modern-saas-animated/dashboard.html",
+    "login": "https://s1xt333n.github.io/modern-saas-animated/login.html"
+  },
+  "features": {
+    "animation_layers": 6,
+    "rotating_portraits": "180+",
+    "fps": 60,
+    "mobile_ready": true,
+    "firebase_ready": true,
+    "production_ready": true
+  },
+  "stats": {
+    "setup_time": "< 3 minutes",
+    "performance": "60 FPS",
+    "browser_support": "All modern browsers",
+    "responsive": "Mobile, Tablet, Desktop"
+  }
+}

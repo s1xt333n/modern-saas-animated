@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "name": "modern-saas-animated",
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "css/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "js/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/dashboard",
+      "dest": "/dashboard.html"
+    },
+    {
+      "src": "/login",
+      "dest": "/login.html"
+    },
+    {
+      "src": "/contacts",
+      "dest": "/contacts.html"
+    },
+    {
+      "src": "/messages",
+      "dest": "/messages.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000"
+        }
+      ]
+    }
+  ]
+}

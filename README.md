@@ -1,6 +1,6 @@
 <div align="center">
 
-[![Modern SaaS Animated](https://via.placeholder.com/1200x300/667eea/ffffff?text=🎭+Modern+SaaS+Animated+-+EPIC+6-Layer+Animation)](https://github.com/s1xt333n/modern-saas-animated)
+[![Modern SaaS Animated](./assets/images/banner.svg)](https://s1xt333n.github.io/modern-saas-animated)
 
 # 🎭 Modern SaaS Animated - Epic Animation Template
 
@@ -12,8 +12,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 ### 🎭 **ANIMATION SHOWCASE** - *THE STAR FEATURE*
-[![Animation Showcase](https://img.shields.io/badge/Animation-MIND%20BLOWING-ff69b4?style=for-the-badge&logo=css3&logoColor=white)](./floating-circles-animation.gif)
-[![Live Demo](https://img.shields.io/badge/Demo-Live%20Now-success?style=for-the-badge&logo=firefox&logoColor=white)](https://s1xt333n.github.io/modern-saas-animated)
+[![Animation Badge](./assets/images/animation-badge.svg)](./animations-showcase.html)
+[![Live Demo Badge](./assets/images/live-demo-badge.svg)](https://s1xt333n.github.io/modern-saas-animated)
 [![Performance](https://img.shields.io/badge/Performance-60%20FPS-brightgreen?style=for-the-badge&logo=speedtest&logoColor=white)](https://s1xt333n.github.io/modern-saas-animated)
 [![Layers](https://img.shields.io/badge/Layers-6%20Rotating-blue?style=for-the-badge&logo=layers&logoColor=white)](./ANIMATION_SHOWCASE.md)
 [![Portraits](https://img.shields.io/badge/Portraits-180%2B-orange?style=for-the-badge&logo=users&logoColor=white)](./ANIMATION_SHOWCASE.md)
@@ -24,7 +24,7 @@
 [![Made with ❤️](https://img.shields.io/badge/Made%20with-❤️-red?style=for-the-badge)](https://github.com/s1xt333n/modern-saas-animated)
 [![Template](https://img.shields.io/badge/SaaS-Template-purple?style=for-the-badge&logo=awesome-lists)](https://github.com/s1xt333n/modern-saas-animated)
 
-[🚀 **LIVE DEMO**](https://s1xt333n.github.io/modern-saas-animated) | [📖 **DOCS**](https://github.com/s1xt333n/modern-saas-animated#readme) | [💬 **SUPPORT**](https://github.com/s1xt333n/modern-saas-animated/issues)
+[🚀 **LIVE DEMO**](https://s1xt333n.github.io/modern-saas-animated) | [🎭 **ANIMATIONS**](./animations-showcase.html) | [📖 **DOCS**](https://github.com/s1xt333n/modern-saas-animated#readme) | [💬 **SUPPORT**](https://github.com/s1xt333n/modern-saas-animated/issues)
 
 </div>
 
@@ -47,7 +47,7 @@
 
 <div align="center">
 
-[![Features Overview](https://via.placeholder.com/800x600/1e3c72/ffffff?text=🏆+Template+Features+Overview)](https://s1xt333n.github.io/modern-saas-animated)
+[![Features Overview](./assets/images/features-overview.svg)](https://s1xt333n.github.io/modern-saas-animated)
 
 </div>
 
@@ -117,7 +117,7 @@ open index.html
 
 <div align="center">
 
-[![6-Layer Animation Preview](https://via.placeholder.com/800x400/2d1b69/ffffff?text=🎪+6-Layer+Floating+Circles+Animation+System)](https://s1xt333n.github.io/modern-saas-animated)
+[![6-Layer Animation Preview](./assets/images/animation-preview.svg)](https://s1xt333n.github.io/modern-saas-animated)
 
 </div>
 

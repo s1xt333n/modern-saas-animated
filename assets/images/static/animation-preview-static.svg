@@ -1,0 +1,69 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="bgRadial" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#2d1b69;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#11152d;stop-opacity:1" />
+        </radialGradient>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge> 
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="800" height="400" fill="url(#bgRadial)"/>
+    
+    <!-- Central title -->
+    <text x="400" y="180" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="32" font-weight="bold" filter="url(#glow)">
+        🎭 6-Layer Animation Preview
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="400" y="220" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="18">
+        180+ Rotating Portraits • 60 FPS Performance
+    </text>
+    
+    <!-- Layer indicators (static) -->
+    <g transform="translate(400,200)">
+        <!-- Layer 1 -->
+        <circle cx="0" cy="-120" r="8" fill="#ff6b6b" opacity="0.8"/>
+        <circle cx="104" cy="-60" r="6" fill="#4ecdc4" opacity="0.7"/>
+        <circle cx="104" cy="60" r="7" fill="#45b7d1" opacity="0.8"/>
+        <circle cx="0" cy="120" r="8" fill="#f9ca24" opacity="0.7"/>
+        <circle cx="-104" cy="60" r="6" fill="#f0932b" opacity="0.8"/>
+        <circle cx="-104" cy="-60" r="7" fill="#6c5ce7" opacity="0.7"/>
+        
+        <!-- Layer 2 -->
+        <circle cx="0" cy="-90" r="6" fill="#fd79a8" opacity="0.6"/>
+        <circle cx="78" cy="-45" r="5" fill="#00b894" opacity="0.6"/>
+        <circle cx="78" cy="45" r="6" fill="#0984e3" opacity="0.7"/>
+        <circle cx="0" cy="90" r="5" fill="#fdcb6e" opacity="0.6"/>
+        <circle cx="-78" cy="45" r="6" fill="#e17055" opacity="0.7"/>
+        <circle cx="-78" cy="-45" r="5" fill="#a29bfe" opacity="0.6"/>
+        
+        <!-- Layer 3 -->
+        <circle cx="0" cy="-60" r="4" fill="#ff7675" opacity="0.5"/>
+        <circle cx="52" cy="-30" r="4" fill="#00cec9" opacity="0.5"/>
+        <circle cx="52" cy="30" r="4" fill="#74b9ff" opacity="0.5"/>
+        <circle cx="0" cy="60" r="4" fill="#ffeaa7" opacity="0.5"/>
+        <circle cx="-52" cy="30" r="4" fill="#fab1a0" opacity="0.5"/>
+        <circle cx="-52" cy="-30" r="4" fill="#fd79a8" opacity="0.5"/>
+    </g>
+    
+    <!-- Performance indicators -->
+    <text x="100" y="350" fill="#00b894" font-family="Arial, sans-serif" font-size="14" font-weight="bold">
+        ⚡ 60 FPS
+    </text>
+    <text x="300" y="350" fill="#0984e3" font-family="Arial, sans-serif" font-size="14" font-weight="bold">
+        🎭 6 Layers
+    </text>
+    <text x="500" y="350" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">
+        👥 180+ Portraits
+    </text>
+    <text x="650" y="350" fill="#a29bfe" font-family="Arial, sans-serif" font-size="14" font-weight="bold">
+        📱 Responsive
+    </text>
+</svg>
