@@ -1,0 +1,47 @@
+<svg width="1200" height="300" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+        </linearGradient>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge> 
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="1200" height="300" fill="url(#bg)"/>
+    
+    <!-- Floating circles animation -->
+    <circle cx="150" cy="100" r="20" fill="#ffffff" opacity="0.1">
+        <animateTransform attributeName="transform" type="rotate" values="0 150 100;360 150 100" dur="20s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="300" cy="200" r="15" fill="#ffffff" opacity="0.15">
+        <animateTransform attributeName="transform" type="rotate" values="360 300 200;0 300 200" dur="15s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="900" cy="80" r="25" fill="#ffffff" opacity="0.08">
+        <animateTransform attributeName="transform" type="rotate" values="0 900 80;360 900 80" dur="25s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1050" cy="220" r="18" fill="#ffffff" opacity="0.12">
+        <animateTransform attributeName="transform" type="rotate" values="360 1050 220;0 1050 220" dur="18s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Main Title -->
+    <text x="600" y="140" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="48" font-weight="bold" filter="url(#glow)">
+        🎭 Modern SaaS Animated
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="600" y="180" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="24">
+        EPIC 6-Layer Floating Circles Animation
+    </text>
+    
+    <!-- Feature highlights -->
+    <text x="600" y="220" text-anchor="middle" fill="#ffeb3b" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+        🚀 180+ Rotating Portraits • 60 FPS • Production Ready
+    </text>
+</svg>

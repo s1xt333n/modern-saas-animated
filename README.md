@@ -1,6 +1,6 @@
 <div align="center">
 
-![Modern SaaS Animated Banner](https://via.placeholder.com/1200x300/1a1a1a/ffffff?text=Modern+SaaS+Animated+%F0%9F%9A%80+Epic+Animation+Template)
+![Modern SaaS Animated Banner](./assets/images/banner.svg)
 
 # 🎭 Modern SaaS Animated - Epic Animation Template
 
@@ -44,6 +44,10 @@
 - **🔒 Firebase Ready** - Complete authentication and database integration
 - **📱 Mobile-Perfect** - Flawless responsive design on any device
 - **🌍 Production Ready** - Optimized, tested, and ready for your SaaS launch
+
+<div align="center">
+<img src="./assets/images/features-overview.svg" alt="Modern SaaS Template Features Overview" width="800">
+</div>
 
 ---
 
@@ -108,6 +112,10 @@ open index.html
 ---
 
 ## 🌟 **ANIMATION SHOWCASE** - *The Star of the Show*
+
+<div align="center">
+<img src="./assets/images/animation-preview.svg" alt="6-Layer Floating Circles Animation Preview" width="800">
+</div>
 
 ### 🎭 **Epic Floating Circles Animation**
 

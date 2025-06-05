@@ -1,0 +1,64 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="bgRadial" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#2d1b69;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#11152d;stop-opacity:1" />
+        </radialGradient>
+        <filter id="blur">
+            <feGaussianBlur stdDeviation="2"/>
+        </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="800" height="400" fill="url(#bgRadial)"/>
+    
+    <!-- Layer 1 - Outermost -->
+    <g transform="translate(400,200)">
+        <circle cx="0" cy="-120" r="8" fill="#ff6b6b" opacity="0.8">
+            <animateTransform attributeName="transform" type="rotate" values="0;360" dur="30s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="104" cy="-60" r="6" fill="#4ecdc4" opacity="0.7">
+            <animateTransform attributeName="transform" type="rotate" values="0;360" dur="30s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="104" cy="60" r="7" fill="#45b7d1" opacity="0.8">
+            <animateTransform attributeName="transform" type="rotate" values="0;360" dur="30s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="0" cy="120" r="8" fill="#f9ca24" opacity="0.7">
+            <animateTransform attributeName="transform" type="rotate" values="0;360" dur="30s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="-104" cy="60" r="6" fill="#f0932b" opacity="0.8">
+            <animateTransform attributeName="transform" type="rotate" values="0;360" dur="30s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="-104" cy="-60" r="7" fill="#eb4d4b" opacity="0.7">
+            <animateTransform attributeName="transform" type="rotate" values="0;360" dur="30s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+    
+    <!-- Layer 2 -->
+    <g transform="translate(400,200)">
+        <circle cx="0" cy="-90" r="10" fill="#6c5ce7" opacity="0.9">
+            <animateTransform attributeName="transform" type="rotate" values="360;0" dur="25s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="78" cy="-45" r="8" fill="#fd79a8" opacity="0.8">
+            <animateTransform attributeName="transform" type="rotate" values="360;0" dur="25s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="78" cy="45" r="9" fill="#fdcb6e" opacity="0.9">
+            <animateTransform attributeName="transform" type="rotate" values="360;0" dur="25s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+    
+    <!-- Center core -->
+    <circle cx="400" cy="200" r="25" fill="#ffffff" opacity="0.9" filter="url(#blur)">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Title -->
+    <text x="400" y="50" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="32" font-weight="bold">
+        🎪 6-Layer Animation System
+    </text>
+    
+    <!-- Stats -->
+    <text x="400" y="350" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="18">
+        180+ Floating Elements • 60 FPS • Silky Smooth
+    </text>
+</svg>
