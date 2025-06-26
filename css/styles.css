@@ -683,10 +683,64 @@ body {
   color: var(--color-accent);
 }
 
-/* Espace avant le footer */
-footer {
-  margin-top: 8rem !important;
-  padding: 4rem 0 !important;
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus states for accessibility */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+a:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --shadow-light: rgba(0, 0, 0, 0.8);
+    --shadow-medium: rgba(0, 0, 0, 0.9);
+    --border-light: #000000;
+    --border-medium: #000000;
+  }
+  
+  [data-theme="dark"] {
+    --shadow-light: rgba(255, 255, 255, 0.8);
+    --shadow-medium: rgba(255, 255, 255, 0.9);
+    --border-light: #ffffff;
+    --border-medium: #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .blob-morph {
+    animation: none !important;
+  }
+  
+  .liquify-hover:hover {
+    transform: none !important;
+  }
 }
 
 body {
@@ -838,17 +892,18 @@ body {
 }
 
 /* Bouton CTA avec effet sweep subtil */
+/* Enhanced CTA button with backward compatibility */
 .cta-btn-custom {
-  background-color: black;
-  color: white;
-  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--color-accent), var(--text-primary));
+  color: var(--color-accent-text);
+  border-radius: var(--liquify-border-radius);
   padding: 1rem 2.5rem;
   font-weight: 600;
   font-size: 1.125rem;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: var(--liquify-transition);
+  box-shadow: 0 4px 15px var(--shadow-light);
   border: none;
   cursor: pointer;
   display: inline-block;
@@ -861,6 +916,66 @@ body {
   -moz-osx-font-smoothing: grayscale;
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Enhanced hover effects */
+.cta-btn-custom:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-radius: calc(var(--liquify-border-radius) * 1.8);
+  box-shadow: 0 8px 30px var(--shadow-medium);
+}
+
+.cta-btn-custom:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Ensure all CTA buttons get liquify effects */
+.cta-btn-custom,
+.cta-btn-liquify {
+  background: linear-gradient(135deg, var(--color-accent), var(--text-primary));
+  color: var(--color-accent-text);
+  border: none;
+  border-radius: var(--liquify-border-radius);
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--liquify-transition);
+  box-shadow: 0 4px 15px var(--shadow-light);
+  transform: perspective(1px) translateZ(0);
+  backface-visibility: hidden;
+}
+
+.cta-btn-custom::before,
+.cta-btn-liquify::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: var(--transition-smooth);
+}
+
+.cta-btn-custom:hover,
+.cta-btn-liquify:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-radius: calc(var(--liquify-border-radius) * 1.8);
+  box-shadow: 0 8px 30px var(--shadow-medium);
+}
+
+.cta-btn-custom:hover::before,
+.cta-btn-liquify:hover::before {
+  left: 100%;
+  transition-duration: 0.6s;
+}
+
+.cta-btn-custom:active,
+.cta-btn-liquify:active {
+  transform: translateY(-1px) scale(0.98);
 }
 
 /* Effet de balayage subtil */
