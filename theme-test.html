@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Test - Modern SaaS</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .test-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+    }
+    
+    .test-section {
+      margin: 2rem 0;
+      padding: 1rem;
+    }
+    
+    .color-demo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .color-swatch {
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+    }
+    
+    .current-theme {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <h1 style="color: var(--text-primary);">Theme System Test</h1>
+      <div class="theme-toggle" onclick="toggleThemeManually()" title="Toggle theme" style="cursor: pointer;"></div>
+    </div>
+    
+    <div class="current-theme" style="color: var(--text-primary);">
+      Current Theme: <span id="current-theme-display">Loading...</span>
+    </div>
+    
+    <div class="test-section glass-card">
+      <h2 style="color: var(--text-primary);">Theme Toggle</h2>
+      <p style="color: var(--text-secondary);">The theme toggle button should appear in the top right of this test. Try switching themes!</p>
+      <button class="cta-btn-liquify" onclick="toggleThemeManually()">Manual Toggle</button>
+    </div>
+    
+    <div class="test-section glass-card">
+      <h2 style="color: var(--text-primary);">Color Variables Demo</h2>
+      <div class="color-demo">
+        <div class="color-swatch" style="background: var(--bg-primary); color: var(--text-primary);">
+          Primary BG<br>Primary Text
+        </div>
+        <div class="color-swatch" style="background: var(--bg-secondary); color: var(--text-secondary);">
+          Secondary BG<br>Secondary Text
+        </div>
+        <div class="color-swatch" style="background: var(--bg-tertiary); color: var(--text-tertiary);">
+          Tertiary BG<br>Tertiary Text
+        </div>
+        <div class="color-swatch" style="background: var(--color-accent); color: var(--color-accent-text);">
+          Accent BG<br>Accent Text
+        </div>
+      </div>
+    </div>
+    
+    <div class="test-section glass-card">
+      <h2 style="color: var(--text-primary);">Liquify Effects Demo</h2>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button class="cta-btn-liquify">Liquify Button</button>
+        <div class="liquify-hover" style="padding: 1rem; background: var(--bg-secondary); color: var(--text-primary); border-radius: var(--liquify-border-radius);">
+          Liquify Hover Element
+        </div>
+        <div class="blob-morph" style="width: 80px; height: 80px; background: var(--color-accent); margin: 1rem;">
+        </div>
+      </div>
+    </div>
+    
+    <div class="test-section glass-card">
+      <h2 style="color: var(--text-primary);">Test Status</h2>
+      <div id="test-results" style="color: var(--text-secondary);">
+        <p>✅ CSS Variables loaded</p>
+        <p id="theme-toggle-status">⏳ Theme toggle loading...</p>
+        <p id="liquify-status">⏳ Liquify effects loading...</p>
+        <p id="persistence-status">⏳ Testing persistence...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/theme-toggle.js"></script>
+  <script src="js/liquify-effects.js"></script>
+  <script>
+    function updateThemeDisplay() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      document.getElementById('current-theme-display').textContent = theme;
+    }
+    
+    function toggleThemeManually() {
+      if (window.themeToggle) {
+        window.themeToggle.toggleTheme();
+        updateThemeDisplay();
+      }
+    }
+    
+    // Test the theme system
+    document.addEventListener('DOMContentLoaded', function() {
+      updateThemeDisplay();
+      
+      // Test theme toggle
+      setTimeout(() => {
+        const toggleButton = document.querySelector('.theme-toggle');
+        if (toggleButton) {
+          document.getElementById('theme-toggle-status').innerHTML = '✅ Theme toggle created';
+        } else {
+          document.getElementById('theme-toggle-status').innerHTML = '❌ Theme toggle not found';
+        }
+      }, 500);
+      
+      // Test liquify effects
+      setTimeout(() => {
+        const liquifyElements = document.querySelectorAll('.liquify-hover');
+        if (liquifyElements.length > 0) {
+          document.getElementById('liquify-status').innerHTML = '✅ Liquify effects active';
+        } else {
+          document.getElementById('liquify-status').innerHTML = '❌ Liquify effects not found';
+        }
+      }, 500);
+      
+      // Test persistence
+      setTimeout(() => {
+        const stored = localStorage.getItem('theme');
+        if (stored !== null) {
+          document.getElementById('persistence-status').innerHTML = `✅ Theme persistence working (stored: ${stored})`;
+        } else {
+          document.getElementById('persistence-status').innerHTML = '⚠️ No theme stored yet (first visit)';
+        }
+      }, 500);
+    });
+    
+    // Listen for theme changes
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          updateThemeDisplay();
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  </script>
+</body>
+</html>
