@@ -17,6 +17,8 @@
   <script src="js/firebase-config.js"></script>
   <script src="js/router.js"></script>
   <script src="js/animation-monitor.js"></script>
+  <script src="js/theme-toggle.js"></script>
+  <script src="js/liquify-effects.js"></script>
   <script src="js/main.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -79,24 +81,24 @@
   </style>
 </head>
 <body class="bg-transparent">
-  <div class="fixed inset-0 w-full h-full min-h-screen z-[-10] pointer-events-none bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
+  <div class="fixed inset-0 w-full h-full min-h-screen z-[-10] pointer-events-none" style="background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);"></div>
   
     <!-- Navigation Header -->
-    <nav class="fixed w-full top-0 left-0 right-0 shadow-sm z-50">
+    <nav class="fixed w-full top-0 left-0 right-0 shadow-sm z-50 glass-card">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <div class="flex justify-between items-center">
-          <a href="/" class="text-2xl font-bold text-gray-900 hover:opacity-80 transition-opacity duration-300">
+          <a href="/" class="text-2xl font-bold text-gray-900 hover:opacity-80 transition-opacity duration-300" style="color: var(--text-primary);">
             Modern SaaS Animated
           </a>
           <div class="flex items-center gap-4">
-            <button id="auth-btn" type="button" class="cta-btn-custom text-sm px-4 py-2" style="display: inline-block;">
+            <button id="auth-btn" type="button" class="cta-btn-liquify text-sm px-4 py-2" style="display: inline-block;">
               Login
             </button>
-            <button type="button" onclick="window.location.href='signup.html'" class="cta-btn-custom text-sm px-4 py-2" style="display: inline-block;">
+            <button type="button" onclick="window.location.href='signup.html'" class="cta-btn-liquify text-sm px-4 py-2" style="display: inline-block;">
               Sign Up
             </button>
             <!-- Dashboard access button -->
-            <button id="dashboard-btn" type="button" onclick="window.location.href='dashboard.html'" class="cta-btn-custom text-sm px-4 py-2" style="display: none;">
+            <button id="dashboard-btn" type="button" onclick="window.location.href='dashboard.html'" class="cta-btn-liquify text-sm px-4 py-2" style="display: none;">
               Dashboard
             </button>
           </div>
@@ -116,9 +118,9 @@
     <!-- Login Modal -->
     <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
       <div class="flex items-center justify-center min-h-screen">
-        <div class="bg-white rounded-2xl p-6 w-full max-w-md mx-4 transform transition-all duration-300">
+        <div class="glass-card p-6 w-full max-w-md mx-4 transform transition-all duration-300 liquify-hover">
           <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-semibold text-gray-900">Sign In</h2>
+            <h2 class="text-xl font-semibold" style="color: var(--text-primary);">Sign In</h2>
             <button onclick="toggleLoginModal()" class="text-gray-400 hover:text-gray-600 transition-colors duration-200">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -128,17 +130,19 @@
 
           <form id="loginForm" class="space-y-5">
             <div>
-              <label for="login-email" class="block text-sm font-medium text-gray-700 mb-1">Email address</label>
+              <label for="login-email" class="block text-sm font-medium mb-1" style="color: var(--text-secondary);">Email address</label>
               <input type="email" id="login-email" name="login-email" 
-                     class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-200 outline-none" 
+                     class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-200 outline-none liquify-hover" 
+                     style="background: var(--bg-primary); color: var(--text-primary); border-color: var(--border-light);"
                      placeholder="name@example.com" required>
             </div>
 
             <div class="relative">
-              <label for="login-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <label for="login-password" class="block text-sm font-medium mb-1" style="color: var(--text-secondary);">Password</label>
               <div class="relative">
                 <input type="password" id="login-password" name="login-password" 
-                       class="w-full px-4 py-3 pr-10 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-200 outline-none" 
+                       class="w-full px-4 py-3 pr-10 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-200 outline-none liquify-hover" 
+                       style="background: var(--bg-primary); color: var(--text-primary); border-color: var(--border-light);"
                        placeholder="••••••••" required>
                 <button type="button" 
                         onclick="togglePasswordVisibility('login-password')" 
@@ -152,31 +156,31 @@
               <div class="flex items-center">
                 <input type="checkbox" id="remember-me" name="remember-me" 
                        class="w-4 h-4 rounded border-gray-200 text-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                <label for="remember-me" class="ml-2 text-sm text-gray-600">Remember me</label>
+                <label for="remember-me" class="ml-2 text-sm" style="color: var(--text-secondary);">Remember me</label>
               </div>
               <a href="#" class="text-sm text-blue-500 hover:text-blue-600 transition-colors duration-200">Forgot password?</a>
             </div>
 
-            <button type="submit" class="cta-btn-custom text-sm px-4 py-2 w-full" style="display: inline-block;">Sign in</button>
+            <button type="submit" class="cta-btn-liquify text-sm px-4 py-2 w-full" style="display: inline-block;">Sign in</button>
           </form>
 
           <div class="relative my-6">
             <div class="absolute inset-0 flex items-center">
-              <div class="w-full border-t border-gray-200"></div>
+              <div class="w-full border-t" style="border-color: var(--border-light);"></div>
             </div>
             <div class="relative flex justify-center text-sm">
-              <span class="px-3 bg-white text-gray-500">Or continue with</span>
+              <span class="px-3" style="background: var(--bg-primary); color: var(--text-secondary);">Or continue with</span>
             </div>
           </div>
 
           <div class="flex gap-4">
-            <button class="flex-1 bg-gray-50 text-gray-600 hover:bg-gray-100 transition-all duration-200 rounded-lg py-3 px-4">
+            <button class="flex-1 liquify-hover transition-all duration-200 rounded-lg py-3 px-4" style="background: var(--bg-secondary); color: var(--text-secondary);">
               <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path>
               </svg>
               Google
             </button>
-            <button class="flex-1 bg-gray-50 text-gray-600 hover:bg-gray-100 transition-all duration-200 rounded-lg py-3 px-4">
+            <button class="flex-1 liquify-hover transition-all duration-200 rounded-lg py-3 px-4" style="background: var(--bg-secondary); color: var(--text-secondary);">
               <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.342 1.453A4.9 4.9 0 011.58 4.42m17.55 0a4.9 4.9 0 004.168 5.844 4.928 4.928 0 01-2.212 4.042 4.9 4.9 0 00-8.384-4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.342 1.453A4.9 4.9 0 011.58 4.42m17.55 0v11.38a4.001 4.001 0 01-1.323.896M18.9 10.9c.026.928.307 1.796.824 2.485M12 9m-2 0a2 2 0 114 0 2 2 0 01-4 0z"></path>
               </svg>
@@ -185,7 +189,7 @@
           </div>
 
           <div class="text-center mt-6">
-            <p class="text-sm text-gray-500">
+            <p class="text-sm" style="color: var(--text-secondary);">
               Don't have an account? <a href="#" class="text-blue-500 hover:text-blue-600 transition-colors duration-200">Sign up</a>
             </p>
           </div>
@@ -194,15 +198,15 @@
     </div>
 
     <!-- Header principal -->
-    <header class="header text-center mb-12 z-10 mt-20">
-      <h1 class="title text-6xl font-bold mb-7 leading-tight tracking-tight">
+    <header class="header text-center mb-12 z-10 mt-20" style="color: var(--text-primary);">
+      <h1 class="title text-6xl font-bold mb-7 leading-tight tracking-tight liquify-hover">
         Turn anonymous website visitors into B2B leads.
       </h1>
-      <p class="subtitle text-2xl text-gray-600 mb-14 font-light max-w-3xl mx-auto">
+      <p class="subtitle text-2xl mb-14 font-light max-w-3xl mx-auto" style="color: var(--text-secondary);">
         Identify companies visiting your website and convert them to engaged, qualified leads.
       </p>
       <div class="button-container">
-        <button class="cta-btn-custom">Start Free Trial</button>
+        <button class="cta-btn-liquify blob-morph">Start Free Trial</button>
       </div>
     </header>
 
