@@ -683,7 +683,51 @@ body {
   color: var(--color-accent);
 }
 
-/* Accessibility improvements */
+/* Navigation enhancements */
+nav.glass-card {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: var(--glass-bg);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+nav .flex.items-center.gap-4 {
+  position: relative;
+}
+
+/* Ensure theme toggle is properly positioned */
+.theme-toggle {
+  order: -1; /* Place before other buttons */
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+/* Enhanced navigation responsiveness */
+@media (max-width: 768px) {
+  nav .flex.items-center.gap-4 {
+    gap: 0.5rem;
+  }
+  
+  .theme-toggle {
+    width: 50px;
+    height: 25px;
+    margin-right: 0.5rem;
+  }
+  
+  .theme-toggle::before {
+    width: 19px;
+    height: 19px;
+  }
+  
+  .theme-toggle.active::before {
+    transform: translateX(23px);
+  }
+  
+  .cta-btn-liquify {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -892,44 +936,7 @@ body {
 }
 
 /* Bouton CTA avec effet sweep subtil */
-/* Enhanced CTA button with backward compatibility */
-.cta-btn-custom {
-  background: linear-gradient(135deg, var(--color-accent), var(--text-primary));
-  color: var(--color-accent-text);
-  border-radius: var(--liquify-border-radius);
-  padding: 1rem 2.5rem;
-  font-weight: 600;
-  font-size: 1.125rem;
-  position: relative;
-  overflow: hidden;
-  transition: var(--liquify-transition);
-  box-shadow: 0 4px 15px var(--shadow-light);
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  box-sizing: border-box;
-  height: auto;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Enhanced hover effects */
-.cta-btn-custom:hover {
-  transform: translateY(-3px) scale(1.02);
-  border-radius: calc(var(--liquify-border-radius) * 1.8);
-  box-shadow: 0 8px 30px var(--shadow-medium);
-}
-
-.cta-btn-custom:active {
-  transform: translateY(-1px) scale(0.98);
-}
-
-/* Ensure all CTA buttons get liquify effects */
+/* Unified CTA Button System */
 .cta-btn-custom,
 .cta-btn-liquify {
   background: linear-gradient(135deg, var(--color-accent), var(--text-primary));
@@ -946,6 +953,15 @@ body {
   box-shadow: 0 4px 15px var(--shadow-light);
   transform: perspective(1px) translateZ(0);
   backface-visibility: hidden;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  height: auto;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 1;
 }
 
 .cta-btn-custom::before,
@@ -958,6 +974,7 @@ body {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: var(--transition-smooth);
+  z-index: 1;
 }
 
 .cta-btn-custom:hover,
@@ -976,6 +993,21 @@ body {
 .cta-btn-custom:active,
 .cta-btn-liquify:active {
   transform: translateY(-1px) scale(0.98);
+}
+
+/* Subtle pulse animation for CTA buttons */
+@keyframes subtlePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.cta-btn-custom,
+.cta-btn-liquify {
+  animation: subtlePulse 6s infinite ease-in-out;
 }
 
 /* Effet de balayage subtil */
@@ -1034,50 +1066,6 @@ body {
     padding: 0.6rem 1.8rem;
     font-size: 0.95rem;
   }
-}
-
-/* Effet de balayage (sweep) */
-.cta-btn-custom::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-  transition: 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: -1;
-}
-
-/* Animation au survol */
-.cta-btn-custom:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-/* Animation du balayage au survol */
-.cta-btn-custom:hover::after {
-  left: 100%;
-}
-
-/* Effet au clic */
-.cta-btn-custom:active {
-  transform: translateY(0);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Animation de pulsation subtile au chargement */
-@keyframes subtlePulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.02);
-  }
-}
-
-.cta-btn-custom {
-  animation: subtlePulse 6s infinite ease-in-out;
 }
 
 /* Ajustements responsifs */
